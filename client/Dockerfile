@@ -3,7 +3,7 @@ WORKDIR '/app'
 COPY ./package.json ./
 RUN npm install
 COPY . .
-RUN npm rnu build
+RUN npm run build
 
 FROM ngnix
 EXPOSE 3000
