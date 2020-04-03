@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t ivanac/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true ivanac/react-test npm run test
+
+after_success:
+  - docker build -t ivanac/multi-docker-client ./client
+  - docker build -t ivanac/multi-docker-nginx ./nginx
+  - docker build -t ivanac/multi-docker-server ./server
+  - docker build -t ivanac/multi-docker-worker ./worker
+  #now push these to Docker Hub
+  #but first login to Docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push ivanac/multi-docker-client
+  - docker push ivanac/multi-docker-nginx
+  - docker push ivanac/multi-docker-server
+  - docker push ivanac/multi-docker-worker
