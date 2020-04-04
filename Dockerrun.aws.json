@@ -3,28 +3,28 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "ivanac/muti-docker-client",
+      "image": "ivanac/multi-docker-client",
       "hostname": "client",
       "essential": false,
       "memory": 128
     },
     {
       "name": "server",
-      "image": "ivanac/muti-docker-server",
+      "image": "ivanac/multi-docker-server",
       "hostname": "api",
       "essential": false,
       "memory": 128
     },
     {
       "name": "worker",
-      "image": "ivanac/muti-docker-worker",
+      "image": "ivanac/multi-docker-worker",
       "hostname": "worker",
       "essential": false,
       "memory": 128
     },
     {
       "name": "nginx",
-      "image": "ivanac/muti-docker-nginx",
+      "image": "ivanac/multi-docker-nginx",
       "essential": true,
       "memory": 128,
       "portMappings": [
