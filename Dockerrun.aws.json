@@ -22,7 +22,6 @@
     {
       "name": "nginx",
       "image": "ivanac/muti-docker-nginx",
-      /*no host name in this case as nothing depends on it*/
       "essential": true,
       "portMappings": [
         {
